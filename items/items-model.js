@@ -21,7 +21,7 @@ function add(item) {
 }
 
 function edit(id, item) {
-  return db('items')
+  return db('items').update(item).where('id', id)
 }
 
 function remove(id) {

@@ -29,10 +29,22 @@ router.post('/', (req, res) => {
   const item = req.body
   Items.add(item)
     .then(response => {
-      res.status(201).json(item)
+      res.status(201).json({ message: 'Successfully added the item.', item})
     })
     .catch(err => {
       res.status(500).json({ message: 'Error adding the item.' })
+    })
+})
+
+router.put('/:id', (req, res) => {
+  const id = req.params.id
+  const updated = req.body
+  Items.edit(id, updated)
+    .then(updatedItem => {
+      res.status(201).json(updated)
+    })
+    .catch(err => {
+      res.status(500).json({ message: 'Error updating the item.' })
     })
 })
 
