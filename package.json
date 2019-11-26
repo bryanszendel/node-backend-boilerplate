@@ -19,10 +19,12 @@
   },
   "homepage": "https://github.com/bryanszendel/node-backend-boilerplate#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "helmet": "^3.21.2",
     "knex": "^0.20.2",
+    "knex-cleaner": "^1.3.0",
     "pg": "^7.14.0",
     "sqlite3": "^4.1.0"
   },
