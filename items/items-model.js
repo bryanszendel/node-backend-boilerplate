@@ -12,12 +12,12 @@ function find() {
   return db('items')
 }
 
-function findById(id) {
-  return db('items').where('id', id).first()
+async function findById(id) {
+  await db('items').where('id', id).first()
 }
 
 function add(item) {
-  return db('items')
+  return db('items').insert(item)
 }
 
 function edit(id, item) {
