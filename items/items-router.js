@@ -1,6 +1,8 @@
 const router = require('express').Router();
-
 const Items = require('./items-model.js');
+const {
+  validateItemId
+} = require('../api/middleware.js')
 
 router.get('/', (req, res) => {
   Items.find()
@@ -13,7 +15,7 @@ router.get('/', (req, res) => {
     })
 })
 
-router.get('/:id', (req, res) => {
+router.get('/:id', validateItemId, (req, res) => {
   const id = req.params.id
   Items.findById(id)
     .then(item => {
@@ -36,11 +38,14 @@ router.post('/', (req, res) => {
     })
 })
 
-router.put('/:id', (req, res) => {
+router.put('/:id', validateItemId, (req, res) => {
   const id = req.params.id
   const updated = req.body
   Items.edit(id, updated)
-    .then(updatedItem => {
+    .then(updatedItemId => {
+      return Items.findById(updatedItemId)
+    })
+    .then(updated => {
       res.status(201).json(updated)
     })
     .catch(err => {
@@ -48,10 +53,10 @@ router.put('/:id', (req, res) => {
     })
 })
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', validateItemId, (req, res) => {
   const id = req.params.id
   Items.remove(id)
-    .then(removed => {
+    .then(deleted => {
       res.status(200).json({ message: 'Successfully removed the item.' })
     })
     .catch(err => {
