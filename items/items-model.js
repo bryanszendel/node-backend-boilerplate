@@ -12,8 +12,8 @@ function find() {
   return db('items')
 }
 
-async function findById(id) {
-  await db('items').where('id', id).first()
+function findById(id) {
+  return db('items').where('id', id).first()
 }
 
 function add(item) {
@@ -25,5 +25,5 @@ function edit(id, item) {
 }
 
 function remove(id) {
-  return db('items')
+  return db('items').del().where('id', id)
 }

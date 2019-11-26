@@ -48,4 +48,15 @@ router.put('/:id', (req, res) => {
     })
 })
 
+router.delete('/:id', (req, res) => {
+  const id = req.params.id
+  Items.remove(id)
+    .then(removed => {
+      res.status(200).json({ message: 'Successfully removed the item.' })
+    })
+    .catch(err => {
+      res.status(500).json({ message: 'Error removing the item.' })
+    })
+})
+
 module.exports = router;
