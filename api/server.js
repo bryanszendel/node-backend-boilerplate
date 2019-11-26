@@ -12,7 +12,7 @@ server.use(cors());
 server.use(helmet());
 server.use(express.json());
 
-//HIGH LEVEL ROUTES
+//USE ROUTES HERE
 
 
 
