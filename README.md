@@ -26,7 +26,6 @@ Boilerplate code for a basic CRUD API on table 'items' with the following db sch
 6. Run `knex migrate:latest` to setup the migration file.
 7. Run `knex seed:run` to populate the sample seed data.
 8. Run `npm run server` to start the local development server.
-
 You should see `=== Server is listening on port PORT ===` in your console.
 9. Make a GET request to http://localhost:6000/api/items and you should see an array of item data:
 ```json
@@ -34,7 +33,7 @@ You should see `=== Server is listening on port PORT ===` in your console.
   {
     "id": 1,
     "name": "A Node.js backend",
-    "description": "Node.js® is a JavaScript runtime built on Chrome's V8 		JavaScript engine.",
+    "description": "Node.js® is a JavaScript runtime built on Chrome's V8 JavaScript engine.",
     "category": "Software",
     "image": "https://nodejs.org/static/images/logos/nodejs-new-pantone-black.png",
     "created_at": null,
@@ -68,4 +67,113 @@ You should see `=== Server is listening on port PORT ===` in your console.
     "updated_at": null
   }
 ]
+```
+
+# API Documentation
+
+## GET  /api/items
+
+Returns an array of item objects:
+```json
+[
+  {
+    "id": 1,
+    "name": "A Node.js backend",
+    "description": "Node.js® is a JavaScript runtime built on Chrome's V8 		JavaScript engine.",
+    "category": "Software",
+    "image": "https://nodejs.org/static/images/logos/nodejs-new-pantone-black.png",
+    "created_at": null,
+    "updated_at": null
+  },
+  {
+    "id": 2,
+    "name": "Express.js endpoints",
+    "description": "Express is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.",
+    "category": "Software",
+    "image": "https://expressjs.com/images/express-facebook-share.png",
+    "created_at": null,
+    "updated_at": null
+  }
+]
+```
+
+## GET  /api/items/:id
+
+Receives an existing ID as a request parameter.
+
+Returns a single item object:
+```json
+{
+  "id": 1,
+  "name": "A Node.js backend",
+  "description": "Node.js® is a JavaScript runtime built on Chrome's V8 		JavaScript engine.",
+  "category": "Software",
+  "image": "https://nodejs.org/static/images/logos/nodejs-new-pantone-black.png",
+  "created_at": null,
+  "updated_at": null
+}
+```
+
+## POST  /api/items
+
+Receives a request body:
+```json
+{
+  "name": "sample name",
+  "description": "sample description",
+  "category": "cat1",
+  "image": "imageURL"
+}
+```
+
+Returns the created item object:
+```json
+{
+  "message": "Successfully added the item.",
+  "item": {
+    "id": 1,
+    "name": "A Node.js backend",
+    "description": "Node.js® is a JavaScript runtime built on Chrome's V8 JavaScript engine.",
+    "category": "Software",
+    "image": "https://nodejs.org/static/images/logos/nodejs-new-pantone-black.png",
+    "created_at": null,
+    "updated_at": null
+  }
+}
+```
+
+## PUT  /api/items/:id
+
+Receives an existing request parameter ID and a request body:
+```json
+{
+  "name": "sample name UPDATE",
+  "description": "sample description UPDATE",
+  "category": "cat1 UPDATE",
+  "image": "imageURL UPDATE"
+}
+```
+
+Returns the updated item object:
+```json
+{
+  "id": 1,
+  "name": "sample name UPDATE",
+  "description": "sample description UPDATE",
+  "category": "cat1 UPDATE",
+  "image": "imageURL UPDATE",
+  "created_at": null,
+  "updated_at": null
+}
+```
+
+## DELETE  /api/items/:id
+
+Receives an existing request parameter
+
+Returns a success message:
+```json
+{
+  "message": "Successfully removed the item."
+}
 ```
