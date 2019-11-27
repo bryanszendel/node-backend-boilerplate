@@ -27,15 +27,16 @@ Boilerplate code for a basic CRUD API on table 'items' with the following db sch
 7. Run `knex seed:run` to populate the sample seed data.
 8. Run `npm run server` to start the local development server. You should see `=== Server is listening on port PORT ===` in your console.
 9. Make a GET request to http://localhost:6000/api/items and you should see an array of item data:
-```[
-	  {
-	    "id": 1,
-	    "name": "A Node.js backend",
-	    "description": "Node.js® is a JavaScript runtime built on Chrome's V8 		JavaScript engine.",
-	    "category": "Software",
-	    "image": "https://nodejs.org/static/images/logos/nodejs-new-pantone-black.png",
-	    "created_at": null,
-	    "updated_at": null
+```json
+[
+  {
+    "id": 1,
+    "name": "A Node.js backend",
+    "description": "Node.js® is a JavaScript runtime built on Chrome's V8 		JavaScript engine.",
+    "category": "Software",
+    "image": "https://nodejs.org/static/images/logos/nodejs-new-pantone-black.png",
+    "created_at": null,
+    "updated_at": null
   },
   {
     "id": 2,
@@ -64,4 +65,5 @@ Boilerplate code for a basic CRUD API on table 'items' with the following db sch
     "created_at": null,
     "updated_at": null
   }
-]```
+]
+```
