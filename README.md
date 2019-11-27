@@ -1,6 +1,7 @@
 # Node.js Backend Boilerplate
 
 Boilerplate code for a basic CRUD API on table 'items' with the following db schema:
+
 | id |     name    |     description    | category | image |      created_at     |      updated_at     |
 |:--:|:-----------:|:------------------:|:--------:|:-----:|:-------------------:|:-------------------:|
 |  1 | sample name | sample description |   cat1   |  URL  | YYYY-MM-DD HH:MM:SS | YYYY-MM-DD HH:MM:SS |
