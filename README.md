@@ -25,7 +25,8 @@ Boilerplate code for a basic CRUD API on table 'items' with the following db sch
 5. Run `knex migrate:rollback` to reset any previous changes.
 6. Run `knex migrate:latest` to setup the migration file.
 7. Run `knex seed:run` to populate the sample seed data.
-8. Run `npm run server` to start the local development server. You should see `=== Server is listening on port PORT ===` in your console.
+8. Run `npm run server` to start the local development server. 
+You should see `=== Server is listening on port PORT ===` in your console.
 9. Make a GET request to http://localhost:6000/api/items and you should see an array of item data:
 ```json
 [
