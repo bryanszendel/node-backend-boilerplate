@@ -1,18 +1,66 @@
-NODE.JS BACKEND BOILERPLATE
+# Node.js Backend Boilerplate
 
-This project will show you how to setup a basic API that will perform CRUD operations on your items of choice.
-
-#Setup your environment
-run 'npm install' to retrieve npm packages and dependencies
-
-create a .env file in your root directory. add the following vars:
--PORT (set to your favorite port number)
--NODE_ENV (set to 'development')
-
-Rename the folder in your root directory called 'items' to the name of the actual items you'll be performing CRUD operations on or simply keep it all named 'items'. If you are tracking users, perhaps rename the folder to 'users'. This folder will contain all of your primary endpoints for your 'items'. (OPTIONAL-you may want to rename each file and/or variable with the items folder that contains the word, 'items' such as 'items-model.js' and 'items-router.js' to help keep it all clean, consistent, and organized.) 
-
-at this point, run this command in your terminal - 'npm run server' and you should see the message in the console: '=== Server listening on port PORT ==='
-
-#Create and Connect your Database
+Boilerplate code for a basic CRUD API on table 'items' with the following db schema:
+| id | name | description | category | image | created_at | updated_at
+|--|--|--|--|--|--|--|
+| 1 | *item name* | *sample description* | *cat1* | URL | 2019-11-26 12:00:00 | 2019-11-26 12:00:00 |
 
 
+- Express, Knex, Sqlite3, PostgreSQL
+
+# To Replicate
+1. Clone this repository.
+2. run `npm install` to install packages and dependencies.
+3. Determine your preferred table name and modify `/items` folder and subsequent references to item/items. Currently, the single table is set as `/items`. The following files would need to be modified.
+	 - [ ] **/*items*** ---> your prefered table_name
+		 - [ ] **/items/*items*-model.js**
+		 - [ ] **/items/*items*-router.js**
+	 - [ ] **/knexfile.js** ---> set development.connection.filename to your new table_name
+	 - [ ] **/database/migrations/20191126121200_*items*.js**
+	 - [ ] **/seeds/01-*items*.js** ---> update the seed file name and contents
+	 - [ ] **/api/server.js** ---> update line 6 to import your new file name
+	 - [ ] **/api/middleware.js** ---> update references to 'items' table
+4. Run `npm install knex -g` to install Knex globally.
+5. Run `knex migrate:rollback` to reset any previous changes.
+6. Run `knex migrate:latest` to setup the migration file.
+7. Run `knex seed:run` to populate the sample seed data.
+8. Run `npm run server` to start the local development server. You should see `=== Server is listening on port PORT ===` in your console.
+9. Make a GET request to http://localhost:6000/api/items and you should see an array of item data:
+> [
+	  {
+	    "id": 1,
+	    "name": "A Node.js backend",
+	    "description": "Node.js® is a JavaScript runtime built on Chrome's V8 		JavaScript engine.",
+	    "category": "Software",
+	    "image": "https://nodejs.org/static/images/logos/nodejs-new-pantone-black.png",
+	    "created_at": null,
+	    "updated_at": null
+  },
+  {
+    "id": 2,
+    "name": "Express.js endpoints",
+    "description": "Express is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.",
+    "category": "Software",
+    "image": "https://expressjs.com/images/express-facebook-share.png",
+    "created_at": null,
+    "updated_at": null
+  },
+  {
+    "id": 3,
+    "name": "Knex.js db connector",
+    "description": "Knex.js is a \"batteries included\" SQL query builder for Postgres, MSSQL, MySQL, MariaDB, SQLite3, Oracle, and Amazon Redshift designed to be flexible, portable, and fun to use.",
+    "category": "Software",
+    "image": "https://i.pinimg.com/originals/34/71/4b/34714b8ef3d6d9887936a942a613064e.png",
+    "created_at": null,
+    "updated_at": null
+  },
+  {
+    "id": 4,
+    "name": "A Sqlite3/PostgreSQL db",
+    "description": "SQLite is a C-language library that implements a small, fast, self-contained, high-reliability, full-featured, SQL database engine. SQLite is the most used database engine in the world.",
+    "category": "Software",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/SQLite370.svg/1200px-SQLite370.svg.png",
+    "created_at": null,
+    "updated_at": null
+  }
+]
