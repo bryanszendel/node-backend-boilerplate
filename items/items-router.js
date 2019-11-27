@@ -35,8 +35,8 @@ router.post('/', validatePostReqBody, (req, res) => {
       [newItemId] = id
       return Items.findById(id)
     })
-    .then(response => {
-      res.status(201).json({ message: 'Successfully added the item.', response})
+    .then(item => {
+      res.status(201).json({ message: 'Successfully added the item.', item})
     })
     .catch(err => {
       res.status(500).json({ message: 'Error adding the item.' })

@@ -23,9 +23,7 @@ function validateItemId(req, res, next) {
 
 function validatePostReqBody(req, res, next) {
   if (req.body.name) {
-    // next()
     if (req.body.description) {
-      // next()
       if (req.body.category) {
         next()
       } else {
