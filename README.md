@@ -1,9 +1,9 @@
 # Node.js Backend Boilerplate
 
 Boilerplate code for a basic CRUD API on table 'items' with the following db schema:
-| id | name | description | category | image | created_at | updated_at
-|--|--|--|--|--|--|--|
-| 1 | *item name* | *sample description* | *cat1* | URL | 2019-11-26 12:00:00 | 2019-11-26 12:00:00 |
+| id |     name    |     description    | category | image |      created_at     |      updated_at     |
+|:--:|:-----------:|:------------------:|:--------:|:-----:|:-------------------:|:-------------------:|
+|  1 | sample name | sample description |   cat1   |  URL  | YYYY-MM-DD HH:MM:SS | YYYY-MM-DD HH:MM:SS |
 
 
 - Express, Knex, Sqlite3, PostgreSQL
